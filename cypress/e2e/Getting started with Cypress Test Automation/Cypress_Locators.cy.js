@@ -26,6 +26,20 @@ describe("visit the site",()=>{
       it.only("test only visible part of the section",()=>{
         cy.get(".search-keyword").type("ca")
         cy.wait(1000)
-        cy.get(".product:visible").should("have.length",4)
+
+        //handle visible and invisible product test
+
+        // cy.get(".product:visible").should("have.length",4)
+
+        //parent-child relationship chaining
+         cy.get(".products").find(".product").should("have.length",4)
+
+      })
+
+
+      it.only("check add to cart function",()=>{
+        cy.get(".search-keyword").type("ca")
+        cy.wait(1000)
+        cy.get(".products").find(".product").eq(1).contains("ADD TO CART").click()
       })
 })
