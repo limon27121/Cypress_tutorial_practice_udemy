@@ -35,6 +35,9 @@ describe("Second test suite",()=>{
         cy.contains("Place Order").click()
         cy.get('.wrapperTwo > div').click()
 
+ //check the url of current page
+    cy.url().should('eq', 'https://rahulshettyacademy.com/seleniumPractise/#/country');
+
     // Select Bangladesh from the dropdown
     cy.get('select').select('Bangladesh');
 
@@ -43,8 +46,9 @@ describe("Second test suite",()=>{
 
     cy.get("input[type='checkbox']").check()
     cy.contains("Proceed").click()
-    cy.url().should('eq', 'https://rahulshettyacademy.com/seleniumPractise/#/country');
+    
     cy.wait(1000)
+    //check current page is the home page
     cy.url().should("eq",'https://rahulshettyacademy.com/seleniumPractise/#/')
 
 
