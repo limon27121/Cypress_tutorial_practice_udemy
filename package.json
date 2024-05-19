@@ -10,5 +10,8 @@
   "description": "",
   "dependencies": {
     "cypress": "^13.9.0"
+  },
+  "devDependencies": {
+    "cypress-iframe": "^1.0.1"
   }
 }
