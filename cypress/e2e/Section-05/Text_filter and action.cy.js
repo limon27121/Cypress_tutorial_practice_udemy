@@ -31,6 +31,8 @@ describe("Second test suite",()=>{
         cy.wait(1000)
         cy.get(".products").find(".product").eq(0).contains("ADD TO CART").click()
         cy.get(".cart-icon").click()
+        //check the length of cart
+        cy.get('.cart-items').find('li.cart-item').should("be.visible").and('have.length', 2);
         cy.get(".action-block").contains("PROCEED TO CHECKOUT").click()
         cy.contains("Place Order").click()
         cy.get('.wrapperTwo > div').click()

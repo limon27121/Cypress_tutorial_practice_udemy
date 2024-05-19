@@ -9,7 +9,7 @@ describe("test suite01",()=>{
      // Select an option from the dropdown
      
      cy.get('#dropdown-class-example').select("Option1").should("have.value", "option1");
-
+    
 
     })
 
