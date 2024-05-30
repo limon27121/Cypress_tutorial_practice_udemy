@@ -21,8 +21,8 @@ describe("test suite for webtables",()=>{
         });
     });
 
-    it('checks displayed total amount', () => {
-        // Replace with your actual URL
+    it('checks displayed total amount of web table fixed header section', () => {
+      
     
         // Find the element containing the total amount
         cy.get('.totalAmount').should('be.visible');
@@ -41,7 +41,7 @@ describe("test suite for webtables",()=>{
       });
     
       it('calculates and verifies total amount from table', () => {
-        // Replace with your actual URL
+       
     
         // Find all "Amount" column cells
         cy.get('table#product tbody tr td:nth-child(4)').then(($amountCells) => {

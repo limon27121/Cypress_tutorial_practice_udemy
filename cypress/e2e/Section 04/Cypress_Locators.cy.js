@@ -36,7 +36,7 @@ describe("visit the site",()=>{
 
       })
 
-
+  //action on single products
       it.only("check add to cart function",()=>{
         cy.get(".search-keyword").type("ca")
         cy.wait(1000)

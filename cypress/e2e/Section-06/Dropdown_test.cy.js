@@ -13,7 +13,7 @@ describe("test suite01",()=>{
 
     })
 
-
+//Suggession class exm section is test
     it("dynamic dropdown testing",()=>{
         cy.get("#autocomplete").type("ban")
         cy.get(".ui-menu-item").each(($el)=>{

@@ -17,7 +17,7 @@ describe("visit the site",()=>{
         cy.get(".products").find(".product").eq(1).contains("ADD TO CART").click()
       })
 
-
+    //using loop to check specific element of class element
       it.only("text validation and take action using each function",()=>{
         cy.get(".search-keyword").type("ca")
         cy.wait(1000)
