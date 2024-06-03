@@ -56,3 +56,87 @@ describe("test suite for webtables",()=>{
         });
       });
 })
+
+
+
+describe('Web Table Data Tests', () => {
+  it('Should verify all td elements content in the first table', () => {
+    // Visit the page that contains the tables
+    cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
+
+    // Array of expected table data for the first table
+    const expectedDataFirstTable = [
+      'Rahul Shetty',
+      'Selenium Webdriver with Java Basics + Advanced + Interview Guide',
+      '30',
+      'Rahul Shetty',
+      'Learn SQL in Practical + Database Testing from Scratch',
+      '25',
+      'Rahul Shetty',
+      'Appium (Selenium) - Mobile Automation Testing from Scratch',
+      '30',
+      'Rahul Shetty',
+      'WebSecurity Testing for Beginners-QA knowledge to next level',
+      '20',
+      'Rahul Shetty',
+      'Learn JMETER from Scratch - (Performance + Load) Testing Tool',
+      '25',
+      'Rahul Shetty',
+      'WebServices / REST API Testing with SoapUI',
+      '35',
+      'Rahul Shetty',
+      'QA Expert Course :Software Testing + Bugzilla + SQL + Agile',
+      '25',
+      'Rahul Shetty',
+      'Master Selenium Automation in simple Python Language',
+      '25',
+      'Rahul Shetty',
+      'Advanced Selenium Framework Pageobject, TestNG, Maven, Jenkins,C',
+      '20',
+      'Rahul Shetty',
+      'Write effective QA Resume that will turn to interview call',
+      '0'
+    ];
+
+    // Get all td elements in the first table and verify their content
+    cy.get('.left-align fieldset table#product tbody tr td').each(($td, index) => {
+      // Get the text content of the td element, trim whitespace, and verify it
+      cy.wrap($td).invoke('text').then((text) => {
+        cy.log(`Index: ${index}, Text: ${text.trim()}`);
+        // Verify the text content
+        expect(text.trim()).to.equal(expectedDataFirstTable[index]);
+      });
+    });
+  });
+
+});
+
+describe("second table test",()=>{
+  it.only('Should verify all visible td elements content in the second table', () => {
+    // Array of expected table data for the second table
+    cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
+    const expectedDataSecondTable = [
+      'Alex', 'Engineer', 'Chennai', '28',
+      'Ben', 'Mechanic', 'Bengaluru', '23',
+      'Dwayne', 'Manager', 'Kolkata', '48',
+      'Ivory', 'Receptionist', 'Chennai', '18',
+      'Jack', 'Engineer', 'Pune', '32',
+      'Joe', 'Postman', 'Chennai', '46',
+      'Raymond', 'Businessman', 'Mumbai', '37',
+      'Ronaldo', 'Sportsman', 'Chennai', '31',
+      'Smith', 'Cricketer', 'Delhi', '33'
+    ];
+
+    // Get all visible td elements in the second table and verify their content
+    cy.get('.right-align fieldset .tableFixHead table#product tbody tr td:visible').each(($td, index) => {
+      // Get the text content of the td element, trim whitespace, and verify it
+      cy.wrap($td).invoke('text').then((text) => {
+        cy.log(`Index: ${index}, Text: ${text.trim()}`);
+        // Verify the text content
+        expect(text.trim()).to.equal(expectedDataSecondTable[index]);
+      });
+    });
+  });
+});
+
+

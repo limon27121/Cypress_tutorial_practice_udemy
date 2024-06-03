@@ -49,6 +49,7 @@ describe('Prompt Alert Test', () => {
       // Stubbing the window.prompt method to return a fixed value
       cy.window().then(win => {
         cy.stub(win, 'prompt').returns('Limon');
+        cy.wait(5000)
       });
   
       // Click the button to trigger the prompt
